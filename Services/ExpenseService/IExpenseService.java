@@ -7,14 +7,14 @@ import java.util.NoSuchElementException;
 
 public interface IExpenseService {
 
-    public int createExpense(String description, double amount);
-    public void updateExpense(Expense updateRequest);
-    public void deleteExpense(int id);
-    public Expense getExpense(int id) throws NoSuchElementException;
-    public List<Expense> getExpenseList();
-    public double getSummary();
-    public double getSummary(int month);
+    int createExpense(String description, double amount);
+    void updateExpense(Expense updateRequest);
+    void deleteExpense(int id);
+    Expense getExpense(int id) throws NoSuchElementException;
+    List<Expense> getExpenseList();
+    double getSummary();
+    double getSummary(int month);
 
-    public void loadData();
-    public void saveData();
+    void loadData();
+    void saveData();
 }
