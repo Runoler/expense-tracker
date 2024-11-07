@@ -5,6 +5,7 @@ import Models.Expense;
 import javax.management.openmbean.InvalidKeyException;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -80,8 +81,9 @@ public class ExpenseService implements IExpenseService {
     @Override
     public double getSummary(int month) {
         double summary = 0;
+        Date currentDate = new Date();
         List<Expense> monthExpenses = expenses.stream()
-                .filter(exp -> exp.getDate().getMonth()+1 == month).toList();
+                .filter(exp -> exp.getDate().getMonth()+1 == month && exp.getDate().getYear() == currentDate.getYear()).toList();
         for (Expense expense : monthExpenses) {
             summary += expense.getAmount();
         }

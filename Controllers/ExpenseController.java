@@ -181,4 +181,19 @@ public class ExpenseController {
         }
         expenseService.updateExpense(request);
     }
+
+    public void help(String[] args) {
+        if (args.length > 1) {
+            System.out.println("Wrong arguments");
+            return;
+        }
+        System.out.println("Show help: --help");
+        System.out.println("Create expense: add --description \"[description]\" --amount [double]");
+        System.out.println("Show list of expenses: list");
+        System.out.println("Show total summary: summary");
+        System.out.println("Show summary per month: summary --month [1-12]");
+        System.out.println("Delete expense by ID: delete --id [id]");
+        System.out.println("Update expense (desc or/and amount): update --id [id] --description \"[description]\" --amount [double]");
+    }
+
 }
