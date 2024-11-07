@@ -26,6 +26,8 @@ public class ExpenseTracker {
                 case "update":
                     expenseController.update(args);
                     break;
+                case "--help":
+                    expenseController.help(args);
             }
         }
         expenseService.saveData();
