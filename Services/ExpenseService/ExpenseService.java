@@ -15,7 +15,9 @@ public class ExpenseService implements IExpenseService {
     private static ExpenseService expenseServiceInstance;
 
     private ExpenseService() {
-        expenses = new ArrayList<>();
+        expenses = List.of(
+                new Expense("Breakfast", 20),
+                new Expense("Lunch", 30));
     }
 
     public static ExpenseService getInstance() {
@@ -74,9 +76,8 @@ public class ExpenseService implements IExpenseService {
     @Override
     public double getSummary(int month) {
         double summary = 0;
-        Date currentDate = new Date();
         List<Expense> monthExpenses = expenses.stream()
-                .filter(exp -> exp.getDate().getMonth() == currentDate.getMonth()).toList();
+                .filter(exp -> exp.getDate().getMonth()+1 == month).toList();
         for (Expense expense : monthExpenses) {
             summary += expense.getAmount();
         }
