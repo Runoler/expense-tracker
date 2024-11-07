@@ -166,7 +166,7 @@ public class ExpenseController {
                 System.out.println("Wrong arguments");
                 return;
             }
-            double amount = 0;
+            double amount;
             try {
                 amount = Double.parseDouble(arguments.get(amountIndex+1));
                 if (amount < 0) {
@@ -176,6 +176,7 @@ public class ExpenseController {
                 request.setAmount(amount);
             } catch (NumberFormatException e) {
                 System.out.println("Amount must be a positive number");
+                return;
             }
         }
         expenseService.updateExpense(request);
