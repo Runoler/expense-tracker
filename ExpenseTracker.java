@@ -5,6 +5,7 @@ import Services.ExpenseService.IExpenseService;
 public class ExpenseTracker {
     public static void main(String[] args) {
         IExpenseService expenseService = ExpenseService.getInstance();
+        expenseService.loadData();
         ExpenseController expenseController = new ExpenseController(expenseService);
 
         int argsCount = args.length;
@@ -27,6 +28,7 @@ public class ExpenseTracker {
                     break;
             }
         }
+        expenseService.saveData();
     }
 
 }
